@@ -1,0 +1,12 @@
+# Python / Django
+__pycache__/
+*.py[cod]
+db.sqlite3
+
+# Ambientes virtuais e Poetry
+.venv/
+poetry.lock.bak 
+
+# VS Code e Sistema
+.vscode/
+.DS_Store
