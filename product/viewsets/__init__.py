@@ -1,0 +1,2 @@
+from .product_viewset import ProductViewSet # importando a viewset ProductViewSet para que possa ser usada em outros arquivos do projeto
+from .category_viewset import CategoryViewSet # importando a viewset CategoryViewSet para que possa ser usada em outros arquivos do projeto 
