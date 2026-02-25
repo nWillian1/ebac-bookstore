@@ -21,8 +21,8 @@ class OrderFactory(factory.django.DjangoModelFactory): # criando uma fábrica pa
             return # se o objeto de item de pedido não foi criado, o método retorna sem fazer nada.
 
         if extracted: # verificando se o parâmetro extracted foi passado, se foi passado, o método adiciona os produtos passados ao campo de produto do objeto de item de pedido.
-            for product_item in extracted: # iterando sobre os produtos passados no parâmetro extracted, que é uma lista de produtos.
-                self.product.add(product_item) # adicionando o produto atual da iteração ao campo de produto do objeto de item de pedido.
+            for product in extracted: # iterando sobre os produtos passados no parâmetro extracted, que é uma lista de produtos.
+                self.product.add(product) # adicionando o produto atual da iteração ao campo de produto do objeto de item de pedido.
 
     class Meta: # definindo a classe Meta para a fábrica, que é usada para configurar o comportamento da fábrica.
         model = Order # definindo o modelo que a fábrica irá usar, que é o modelo OrderItem.

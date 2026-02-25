@@ -11,3 +11,4 @@ class CategorySerializer(serializers.ModelSerializer): # criando um serializer p
             "description", # definindo o campo de descrição, que é um campo de texto.
             "active", # definindo o campo de ativo, que é um campo booleano.
         ]
+        extra_kwargs = {"slug": {"required": False}} # definindo os campos extras para o serializer, que é usado para configurar o comportamento dos campos do serializer. Neste caso, o campo de produto é definido como não obrigatório.

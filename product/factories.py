@@ -19,13 +19,13 @@ class ProductFactory(factory.django.DjangoModelFactory): # criando uma fábrica 
     active = factory.Iterator([True, False]) # definindo o campo de ativo, que é um campo booleano, usando o método Iterator do factory para gerar valores booleanos aleatórios.
 
     @factory.post_generation # definindo um método de pós-geração para o campo de categoria, que é chamado após a criação do objeto de produto.
-    def categories(self, create, extracted, **kwargs): # definindo o método de pós-geração para o campo de categoria, que é chamado após a criação do objeto de produto. O método recebe os parâmetros create, extracted e kwargs.
+    def category(self, create, extracted, **kwargs): # definindo o método de pós-geração para o campo de categoria, que é chamado após a criação do objeto de produto. O método recebe os parâmetros create, extracted e kwargs.
         if not create: # verificando se o objeto de produto foi criado, se não foi criado, o método retorna sem fazer nada.
             return # se o objeto de produto não foi criado, o método retorna sem fazer nada.
 
         if extracted: # verificando se o parâmetro extracted foi passado, se foi passado, o método adiciona as categorias passadas ao campo de categoria do objeto de produto.
-            for cat in extracted: # iterando sobre as categorias passadas no parâmetro extracted, que é uma lista de categorias.
-                self.category.add(cat) # adicionando a categoria atual da iteração ao campo de categoria do objeto de produto.
+            for category in extracted: # iterando sobre as categorias passadas no parâmetro extracted, que é uma lista de categorias.
+                self.category.add(category) # adicionando a categoria atual da iteração ao campo de categoria do objeto de produto.
         else: 
             self.category.add(CategoryFactory()) # se o parâmetro extracted não foi passado, o método cria uma nova categoria usando a fábrica CategoryFactory e adiciona ao campo de categoria do objeto de produto.
 
