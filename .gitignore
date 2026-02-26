@@ -4,7 +4,7 @@ __pycache__/
 db.sqlite3
 
 # Ambientes virtuais e Poetry
-.venv/
+venv/
 poetry.lock.bak 
 
 # VS Code e Sistema
