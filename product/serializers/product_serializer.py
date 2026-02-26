@@ -4,7 +4,7 @@ from product.models.product import Product, Category # importando o modelo Produ
 from product.serializers.category_serializer import CategorySerializer # importando o serializer CategorySerializer do aplicativo product
 
 class ProductSerializer(serializers.ModelSerializer): # criando um serializer para o modelo Product, que é uma subclasse de ModelSerializer
-    category = CategorySerializer(required=False, many=True, read_only=True) # definindo um campo de categoria, que é uma lista de categorias.
+    category = CategorySerializer(required=True, many=True) # definindo um campo de categoria, que é uma lista de categorias.
     categories_id = serializers.PrimaryKeyRelatedField(queryset=Category.objects.all(), write_only=True, many=True) # definindo um campo de IDs de categorias, que é uma lista de IDs de categorias. Este campo é write-only, ou seja, só pode ser usado para criar ou atualizar um produto, e não será incluído na representação do produto.
 
     class Meta: # definindo a classe Meta para o serializer, que é usada para configurar o comportamento do serializer.
