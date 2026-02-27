@@ -10,3 +10,5 @@ poetry.lock.bak
 # VS Code e Sistema
 .vscode/
 .DS_Store
+.env
+*.log

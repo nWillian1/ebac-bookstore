@@ -24,7 +24,7 @@ class TestOrderViewSet(APITestCase):
         
         self.assertEqual(response.status_code, status.HTTP_200_OK) # Verifica se o status code da resposta é 200 OK.
 
-        order_data = json.loads(response.content) [0] # Carrega o conteúdo da resposta como JSON.
+        order_data = json.loads(response.content)["results"][0] # Carrega o conteúdo da resposta como JSON.
         self.assertEqual(order_data["product"][0]["title"], self.product.title) # Verifica se o título do produto no pedido é igual ao título do produto criado na configuração do teste.
         self.assertEqual(order_data["product"][0]["price"], self.product.price) # Verifica se o preço do produto no pedido é igual ao preço do produto criado na configuração do teste.
         self.assertEqual(order_data["product"][0]["active"], self.product.active) # Verifica se o título do produto no pedido é igual ao título do produto criado na configuração do teste.
