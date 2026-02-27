@@ -7,4 +7,4 @@ class CategoryViewSet(ModelViewSet): # definindo a classe ProductViewSet que her
     serializer_class = CategorySerializer # definindo o serializer_class para usar o ProductSerializer
 
     def get_queryset(self): # definindo o método get_queryset para retornar o queryset de produtos
-        return Category.objects.all() # retornando todos os objetos do modelo Product
+        return Category.objects.all().order_by("id") # retornando todos os objetos do modelo Product
