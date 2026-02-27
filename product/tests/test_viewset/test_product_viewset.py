@@ -1,6 +1,6 @@
 import json # importando o módulo json para trabalhar com dados em formato JSON.
 from rest_framework.test import APITestCase, APIClient # importando as classes APITestCase e APIClient do módulo rest_framework.test para criar testes de API.
-from rest_framework.views import status # importando a classe status do módulo rest_framework.views para usar os códigos de status HTTP nas asserções dos testes.
+from rest_framework import status # importando a classe status do módulo rest_framework para usar os códigos de status HTTP nas asserções dos testes.
 
 from django.urls import reverse # importando a função reverse do módulo django.urls para gerar URLs a partir dos nomes das rotas definidas no arquivo urls.py.
 
@@ -28,12 +28,12 @@ class TestProductViewSet(APITestCase): # definindo a classe de teste para o view
 
         product_data = json.loads(response.content) # carregando o conteúdo da resposta como JSON e acessando o primeiro item da lista de produtos retornada.
 
-        self.assertEqual(product_data[0]["title"], self.product.title) # verificando se o título do produto retornado é igual ao título do produto criado na configuração do teste.
-        self.assertEqual(product_data[0]["price"], self.product.price) # verificando se o preço do produto retornado é igual ao preço do produto criado na configuração do teste.
+        self.assertEqual(product_data["results"][0]["title"], self.product.title) # verificando se o título do produto retornado é igual ao título do produto criado na configuração do teste.
+        self.assertEqual(product_data["results"][0]["price"], self.product.price) # verificando se o preço do produto retornado é igual ao preço do produto criado na configuração do teste.
         
-        self.assertEqual(product_data[0]["title"], self.product.title)
-        self.assertEqual(product_data[0]["price"], self.product.price)
-        self.assertEqual(product_data[0]["active"], self.product.active) # verificando se o campo de ativo do produto retornado é igual ao campo de ativo do produto criado na configuração do teste.
+        self.assertEqual(product_data["results"][0]["title"], self.product.title)
+        self.assertEqual(product_data["results"][0]["price"], self.product.price)
+        self.assertEqual(product_data["results"][0]["active"], self.product.active) # verificando se o campo de ativo do produto retornado é igual ao campo de ativo do produto criado na configuração do teste.
 
     def test_create_product(self): # definindo o método de teste para criar um produto.
         category = CategoryFactory() # criando uma categoria usando a fábrica de categorias para associar ao produto.

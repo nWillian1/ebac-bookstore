@@ -1,6 +1,6 @@
 import json # importando o módulo json para trabalhar com dados em formato JSON.
 from rest_framework.test import APITestCase, APIClient # importando as classes APITestCase e APIClient do módulo rest_framework.test para criar testes de API.
-from rest_framework.views import status # importando a classe status do módulo rest_framework.views para usar os códigos de status HTTP nas asserções dos testes.
+from rest_framework import status # importando a classe status do módulo rest_framework para usar os códigos de status HTTP nas asserções dos testes.
 
 from django.urls import reverse # importando a função reverse do módulo django.urls para gerar URLs a partir dos nomes das rotas definidas no arquivo urls.py.
 
@@ -21,7 +21,7 @@ class CategoryViewSet(APITestCase): # definindo a classe de teste para o viewset
         self.assertEqual(response.status_code, status.HTTP_200_OK) # verificando se o status code da resposta é 200 OK.
         category_data = json.loads(response.content) # carregando o conteúdo da resposta como JSON e acessando o primeiro item da lista de produtos retornada.
 
-        self.assertEqual(category_data[0]["title"], self.category.title) # verificando se o título da categoria retornado é igual ao título da categoria criada na configuração do teste.
+        self.assertEqual(category_data["results"][0]["title"], self.category.title) # verificando se o título da categoria retornado é igual ao título da categoria criada na configuração do teste.
 
     def test_create_category(self): # definindo o método de teste para criar uma categoria.
         data = json.dumps({
