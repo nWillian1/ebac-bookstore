@@ -23,7 +23,6 @@ class TestProductViewSet(APITestCase): # definindo a classe de teste para o view
         )
 
     def test_get_all_products(self): # definindo o método de teste para obter todos os produtos.
-        self.client.credentials(HTTP_AUTHORIZATION="Token " + self.token.key) # Adicionando o token de autenticação ao cliente de API.   
         response = self.client.get(
             reverse("product-list")
         ) # fazendo uma requisição GET para a URL do endpoint de listagem de produtos usando a função reverse para gerar a URL a partir do nome da rota.
