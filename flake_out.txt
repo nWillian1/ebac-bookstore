@@ -1,0 +1,89 @@
+docker-compose exec web poetry run flake8 --max-line-length=118 --exclude=venv,.venv .
+process_begin: CreateProcess(NULL, which pyenv, ...) failed.
+Makefile:18: pipe: No error
+time="2026-03-04T20:17:09-03:00" level=warning msg="C:\\Users\\Willi\\Documents\\willi2016-repo\\bookstore\\docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+./bookstore/urls.py:18:1: F401 'debug_toolbar' imported but unused
+./order/admin.py:1:1: F401 'django.contrib.admin' imported but unused
+./order/admin.py:4:1: F401 '.models.Order' imported but unused
+./order/factories.py:1:119: E501 line too long (124 > 118 characters)
+./order/factories.py:9:1: F401 'product.factories.ProductFactory' imported but unused
+./order/factories.py:19:119: E501 line too long (127 > 118 characters)
+./order/factories.py:22:119: E501 line too long (135 > 118 characters)
+./order/factories.py:33:119: E501 line too long (163 > 118 characters)
+./order/factories.py:35:119: E501 line too long (149 > 118 characters)
+./order/factories.py:38:119: E501 line too long (184 > 118 characters)
+./order/factories.py:41:119: E501 line too long (119 > 118 characters)
+./order/factories.py:46:119: E501 line too long (167 > 118 characters)
+./order/models/__init__.py:1:1: F401 '.order.Order' imported but unused
+./order/models/order.py:11:29: E262 inline comment should start with '# '
+./order/models/order.py:14:8: E262 inline comment should start with '# '
+./order/serializers/__init__.py:1:1: F401 '.order_serializer.OrderSerializer' imported but unused
+./order/serializers/order_serializer.py:22:119: E501 line too long (218 > 118 characters)
+./order/serializers/order_serializer.py:33:119: E501 line too long (120 > 118 characters)
+./order/tests/test_serializers/test_order_serializers.py:24:119: E501 line too long (121 > 118 characters)
+./order/tests/test_serializers/test_order_serializers.py:27:119: E501 line too long (121 > 118 characters)
+./order/tests/test_serializers/test_order_serializers.py:38:119: E501 line too long (144 > 118 characters)
+./order/tests/test_serializers/test_order_serializers.py:42:119: E501 line too long (135 > 118 characters)
+./order/tests/test_serializers/test_order_serializers.py:49:119: E501 line too long (222 > 118 characters)
+./order/tests/test_serializers/test_order_serializers.py:53:119: E501 line too long (139 > 118 characters)
+./order/tests/test_serializers/test_order_serializers.py:59:119: E501 line too long (306 > 118 characters)
+./order/tests/test_viewsets/test_order_viewset.py:11:1: F401 'product.models.Product' imported but unused
+./order/tests/test_viewsets/test_order_viewset.py:65:119: E501 line too long (131 > 118 characters)
+./order/tests/test_viewsets/test_order_viewset.py:86:119: E501 line too long (148 > 118 characters)
+./order/tests/test_viewsets/test_order_viewset.py:96:9: F841 local variable 'created_order' is assigned to but never used
+./order/views.py:1:1: F401 'django.shortcuts.render' imported but unused
+./order/viewsets/__init__.py:1:1: F401 '.order_viewset.OrderViewSet' imported but unused
+./product/factories.py:1:119: E501 line too long (124 > 118 characters)
+./product/factories.py:3:119: E501 line too long (188 > 118 characters)
+./product/factories.py:14:119: E501 line too long (126 > 118 characters)
+./product/factories.py:17:119: E501 line too long (124 > 118 characters)
+./product/factories.py:20:119: E501 line too long (129 > 118 characters)
+./product/factories.py:23:119: E501 line too long (138 > 118 characters)
+./product/factories.py:34:119: E501 line too long (124 > 118 characters)
+./product/factories.py:35:119: E501 line too long (229 > 118 characters)
+./product/factories.py:38:119: E501 line too long (126 > 118 characters)
+./product/factories.py:41:119: E501 line too long (138 > 118 characters)
+./product/factories.py:43:119: E501 line too long (144 > 118 characters)
+./product/factories.py:46:119: E501 line too long (179 > 118 characters)
+./product/factories.py:54:119: E501 line too long (164 > 118 characters)
+./product/factories.py:66:119: E501 line too long (179 > 118 characters)
+./product/models/__init__.py:1:1: F401 '.category.Category' imported but unused
+./product/models/__init__.py:2:1: F401 '.product.Product' imported but unused
+./product/serializers/__init__.py:1:1: F401 '.category_serializer.CategorySerializer' imported but unused
+./product/serializers/__init__.py:2:1: F401 '.product_serializer.ProductSerializer' imported but unused
+./product/serializers/category_serializer.py:13:119: E501 line too long (120 > 118 characters)
+./product/serializers/category_serializer.py:15:119: E501 line too long (120 > 118 characters)
+./product/serializers/category_serializer.py:23:119: E501 line too long (192 > 118 characters)
+./product/serializers/product_serializer.py:22:119: E501 line too long (224 > 118 characters)
+./product/serializers/product_serializer.py:24:119: E501 line too long (120 > 118 characters)
+./product/serializers/product_serializer.py:44:119: E501 line too long (150 > 118 characters)
+./product/tests/test_models.py:18:119: E501 line too long (137 > 118 characters)
+./product/tests/test_models.py:23:119: E501 line too long (137 > 118 characters)
+./product/tests/test_models.py:26:119: E501 line too long (123 > 118 characters)
+./product/tests/test_models.py:29:119: E501 line too long (151 > 118 characters)
+./product/tests/test_serializers/test_serializers.py:5:119: E501 line too long (166 > 118 characters)
+./product/tests/test_serializers/test_serializers.py:11:119: E501 line too long (134 > 118 characters)
+./product/tests/test_serializers/test_serializers.py:31:119: E501 line too long (147 > 118 characters)
+./product/tests/test_serializers/test_serializers.py:36:119: E501 line too long (130 > 118 characters)
+./product/tests/test_serializers/test_serializers.py:48:119: E501 line too long (183 > 118 characters)
+./product/tests/test_viewset/test_category_viewset.py:5:119: E501 line too long (129 > 118 characters)
+./product/tests/test_viewset/test_category_viewset.py:9:119: E501 line too long (138 > 118 characters)
+./product/tests/test_viewset/test_category_viewset.py:16:119: E501 line too long (143 > 118 characters)
+./product/tests/test_viewset/test_category_viewset.py:24:119: E501 line too long (119 > 118 characters)
+./product/tests/test_viewset/test_category_viewset.py:41:119: E501 line too long (155 > 118 characters)
+./product/tests/test_viewset/test_category_viewset.py:52:119: E501 line too long (123 > 118 characters)
+./product/tests/test_viewset/test_category_viewset.py:61:119: E501 line too long (121 > 118 characters)
+./product/tests/test_viewset/test_category_viewset.py:67:119: E501 line too long (131 > 118 characters)
+./product/tests/test_viewset/test_product_viewset.py:5:119: E501 line too long (129 > 118 characters)
+./product/tests/test_viewset/test_product_viewset.py:12:119: E501 line too long (138 > 118 characters)
+./product/tests/test_viewset/test_product_viewset.py:20:119: E501 line too long (173 > 118 characters)
+./product/tests/test_viewset/test_product_viewset.py:31:119: E501 line too long (119 > 118 characters)
+./product/tests/test_viewset/test_product_viewset.py:60:119: E501 line too long (153 > 118 characters)
+./product/tests/test_viewset/test_product_viewset.py:72:119: E501 line too long (119 > 118 characters)
+./product/tests/test_viewset/test_product_viewset.py:81:119: E501 line too long (135 > 118 characters)
+./product/tests/test_viewset/test_product_viewset.py:103:119: E501 line too long (119 > 118 characters)
+./product/tests/test_viewset/test_product_viewset.py:107:119: E501 line too long (127 > 118 characters)
+./product/views.py:1:1: F401 'django.shortcuts.render' imported but unused
+./product/viewsets/__init__.py:1:1: F401 '.category_viewset.CategoryViewSet' imported but unused
+./product/viewsets/__init__.py:4:1: F401 '.product_viewset.ProductViewSet' imported but unused
+make: *** [Makefile:102: check-py-flake8] Error 1
