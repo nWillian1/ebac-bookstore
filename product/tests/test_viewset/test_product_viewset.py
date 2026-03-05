@@ -1,6 +1,7 @@
 import json # importando o módulo json para trabalhar com dados em formato JSON.
 from rest_framework.test import APITestCase, APIClient # importando as classes APITestCase e APIClient do módulo rest_framework.test para criar testes de API.
 from rest_framework import status # importando a classe status do módulo rest_framework para usar os códigos de status HTTP nas asserções dos testes.
+from rest_framework.authtoken.models import Token # Importando modelo Token para autenticação.
 
 from django.urls import reverse # importando a função reverse do módulo django.urls para gerar URLs a partir dos nomes das rotas definidas no arquivo urls.py.
 
@@ -13,6 +14,8 @@ class TestProductViewSet(APITestCase): # definindo a classe de teste para o view
 
     def setUp(self): # definindo o método de configuração para os testes, que é executado antes de cada teste.
         self.user = UserFactory() # criando um usuário usando a fábrica de usuários para associar aos produtos.
+        self.token = Token.objects.create(user=self.user) # criando um token para autenticar o usuário no teste.
+        self.token.save() # salvando o token no banco de dados.
 
         self.product = ProductFactory(
             title="pro controller",
@@ -36,6 +39,7 @@ class TestProductViewSet(APITestCase): # definindo a classe de teste para o view
         self.assertEqual(product_data["results"][0]["active"], self.product.active) # verificando se o campo de ativo do produto retornado é igual ao campo de ativo do produto criado na configuração do teste.
 
     def test_create_product(self): # definindo o método de teste para criar um produto.
+        self.client.credentials(HTTP_AUTHORIZATION="Token " + self.token.key) # adicionando o token de autenticação ao cliente de API.
         category = CategoryFactory() # criando uma categoria usando a fábrica de categorias para associar ao produto.
         data = json.dumps({
             "title": "notebook",
