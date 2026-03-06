@@ -1,1 +1,3 @@
-from .order_viewset import OrderViewSet # importando a viewset OrderViewSet para que possa ser usada em outros arquivos do projeto
+from .order_viewset import (
+    OrderViewSet,
+)  # importando a viewset OrderViewSet para que possa ser usada em outros arquivos do projeto
