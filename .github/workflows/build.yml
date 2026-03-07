@@ -12,6 +12,21 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_DB: bookstore_dev_db
+          POSTGRES_USER: bookstore_dev
+          POSTGRES_PASSWORD: bookstore_dev
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
     steps:
     - uses: actions/checkout@v2
 
@@ -34,5 +49,14 @@ jobs:
       run: python -m poetry install
 
     - name: Test
+      env:
+          SECRET_KEY: "foo"
+          DEBUG: 1
+          SQL_ENGINE: django.db.backends.postgresql
+          SQL_DATABASE: bookstore_dev_db
+          SQL_USER: bookstore_dev
+          SQL_PASSWORD: bookstore_dev
+          SQL_HOST: localhost
+          SQL_PORT: 5432
       run: |
         poetry run python manage.py test
