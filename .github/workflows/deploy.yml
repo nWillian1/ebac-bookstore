@@ -1,0 +1,30 @@
+name: Django CD - PythonAnywhere
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Instalar Dependências de Deploy
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests GitPython
+
+      - name: Executar Script de Deploy
+        env:
+          PA_USERNAME: ${{ secrets.PA_USERNAME }}
+          PA_TOKEN: ${{ secrets.PA_TOKEN }}
+        run: python deploy.py
