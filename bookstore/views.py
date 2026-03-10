@@ -14,5 +14,4 @@ def update(request):
         return HttpResponse("Couldn't update the code on PythonAnywhere")
 
 def hello_world(request):
-    template = loader.get_template('hello_world.html')
-    return HttpResponse(template.render())
+    return HttpResponse("Hello World! v1")
