@@ -13,5 +13,5 @@ def update(request):
     else:
         return HttpResponse("Couldn't update the code on PythonAnywhere")
 
-def hello_world(request):
-    return HttpResponse("Hello World! v1")
+def hello_world(request): 
+    return HttpResponse("Hello World! v1") # Retorno Hello World no navegador
